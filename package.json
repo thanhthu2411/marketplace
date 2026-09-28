@@ -1,0 +1,32 @@
+{
+  "name": "resumecustomizer",
+  "version": "1.0.0",
+  "description": "This is a web app that allows users to customize their resume based on given job description.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thanhthu2411/resumecustomizer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/thanhthu2411/resumecustomizer/issues"
+  },
+  "homepage": "https://github.com/thanhthu2411/resumecustomizer#readme",
+  "dependencies": {
+    "express": "^5.2.1",
+    "multer": "^2.4.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/multer": "^2.2.0",
+    "@types/node": "^26.6.3",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^7.0.2"
+  }
+}
