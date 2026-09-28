@@ -55,11 +55,17 @@
                 <p>Not listings yet. </p>
             <% } else { %>
                 <% listings.forEach(l => { %>
-                    <div class="listing">
-                        <strong><%= l.title %></strong>
-                        <div class="description">$<%= l.description %></div>
-                        <div class="price">$<%= l.price %></div>
-                        <div class="category"><%= l.category %></div>
+                    <div class="listing-card">
+                        <div class="listing-thumb"><%= l.category.charAt(0).toUpperCase() %></div>
+                        <div class="listing-body">
+                            <div class="listing-top">
+                                <span class="price">$<%= l.price %></span>
+                                <span class="tag"><%= l.category %></span>
+                            </div>
+                            <h3 class="title"><%= l.title %></h3>
+                            <p class="description"><%= l.description %></p>
+                            <span class="posted">Posted <%= new Date(l.createdAt).toLocaleDateString() %></span>
+                        </div>
                     </div>
                 <% }) %>
             <% } %>

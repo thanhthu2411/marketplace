@@ -9,7 +9,7 @@ const getAllListings = (req: Request, res: Response, next: NextFunction) => {
 }
 
 const createNewListing = (req: Request, res: Response, next: NextFunction) => {
-    const {title, description, price, category} = req.body()
+    const {title, description, price, category} = req.body
     create(title, description, Number(price), category)
     return res.redirect("/listings")
 }
