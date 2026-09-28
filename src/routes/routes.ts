@@ -1,9 +1,10 @@
 import {Router} from "express"
-import { getAllListings } from "../controllers/listingController.js"
+import { getAllListings, createNewListing } from "../controllers/listingController.js"
 
 const router = Router()
 
 router.get("/", getAllListings)
+router.post("/", createNewListing)
 
 
 export default router

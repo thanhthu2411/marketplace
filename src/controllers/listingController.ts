@@ -1,4 +1,4 @@
-import {getAll} from "../data/listingStore.js"
+import {getAll, create} from "../data/listingStore.js"
 import type { Request, Response, NextFunction } from "express";
 
 const getAllListings = (req: Request, res: Response, next: NextFunction) => {
@@ -8,5 +8,11 @@ const getAllListings = (req: Request, res: Response, next: NextFunction) => {
     })
 }
 
+const createNewListing = (req: Request, res: Response, next: NextFunction) => {
+    const {title, description, price, category} = req.body()
+    create(title, description, Number(price), category)
+    return res.redirect("/listings")
+}
 
-export {getAllListings}
+
+export {getAllListings, createNewListing}

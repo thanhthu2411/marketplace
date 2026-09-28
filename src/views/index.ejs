@@ -4,11 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Market Place</title>
-    <link rel="stylesheet" src="/css/index.css">"
+    <link rel="stylesheet" src="/css/index.css">
     <!-- <script type="module" src="/j"></script> -->
 </head>
 <body>
     <main>
+        <h1>Campus Marketplace</h1>
+        <section class="add-listin-container">
+            <button class="add-listing-btn">Add New Listing</button>
+        </section>
+
+        <section class="listings-container">
+            <% if (listings.length === 0) { %>
+                <p>Not listings yet. </p>
+            <% } else { %>
+                <% listings.forEach(l => { %>
+                    <div class="listing">
+                        <strong><%= l.title %></strong>
+                        <div class="description">$<%= l.description %></div>
+                        <div class="price">$<%= l.price %></div>
+                        <div class="category"><%= l.category %></div>
+                    </div>
+                <% }) %>
+            <% } %>
+        </section>
         
     </main>
 </body>
