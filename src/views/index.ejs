@@ -19,19 +19,25 @@
                 <button id="close-modal-btn" type="button">&times;</button>
                 <form action="/listings" method="POST">
                     <label>
-                        Title
+                         <span class="label-text">
+                            Title<span style="color: red; margin-left: 2px;">*</span>
+                        </span>
                         <input type="text" name="title" required>
                     </label>
                     <label>
-                        description
+                        Description
                         <textarea name="description"></textarea>
                     </label>
                     <label>
-                        Price ($)
+                        <span class="label-text">
+                            Price ($)<span style="color: red; margin-left: 2px;">*</span>
+                        </span>
                         <input type="number" name="price" min="0" step="0.01" required>
                     </label>
                     <label>
-                        Category
+                         <span class="label-text">
+                            Category<span style="color: red; margin-left: 2px;">*</span>
+                        </span>
                         <select name="category" required>
                         <option value="books">Books</option>
                         <option value="furniture">Furniture</option>

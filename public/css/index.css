@@ -82,6 +82,7 @@ h1 {
   gap: 0.6rem;
   min-width: 280px;
 }
+
 #close-modal-btn {
   position: absolute;
   top: 0.5rem;
@@ -90,4 +91,58 @@ h1 {
   background: none;
   font-size: 1.2rem;
   cursor: pointer;
+}
+
+#close-modal-btn:hover {
+  color: #333;
+}
+
+.modal-box form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.modal-box label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.85rem;
+  color: #444;
+  font-weight: 500;
+
+}
+
+.modal-box input,
+.modal-box textarea,
+.modal-box select {
+  padding: 0.5rem 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-family: inherit;
+}
+
+.modal-box input:focus,
+.modal-box textarea:focus,
+.modal-box select:focus {
+  outline: none;
+  border-color: #2f5386;
+  box-shadow: 0 0 0 2px rgba(30, 107, 52, 0.15);
+}
+
+.modal-box button[type="submit"] {
+  margin-top: 0.3rem;
+  padding: 0.6rem;
+  border: none;
+  border-radius: 6px;
+  background: #648cb9;
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.modal-box button[type="submit"]:hover {
+  background: #3c6fa9;
 }
