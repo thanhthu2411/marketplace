@@ -5,7 +5,9 @@ export interface Listing {
     description?: string
     price: number
     category: "books" | "furniture" | "electronics" | "other"
+    address: string
     isSold: boolean
+    imageUrl?: string
     createdAt: Date 
 }
 

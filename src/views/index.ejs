@@ -9,10 +9,15 @@
 </head>
 <body>
     <main>
-        <h1>Campus Marketplace</h1>
-        
-        <button id="open-modal-btn">+ Add New Listing</button>
-        <!-- form modal  -->
+        <header class="page-header">
+            <h1>Campus Marketplace</h1>
+            <p class="subtitle">Buy and sell with students near you</p>
+        </header>
+
+        <div class="toolbar">
+            <span class="count"><%= listings.length %> listing<%= listings.length !== 1 ? 's' : '' %></span>
+            <button id="open-modal-btn">+ Add New Listing</button>
+        </div>
 
         <div id="listing-modal" class="modal-overlay">
             <div class="modal-box">
@@ -35,6 +40,12 @@
                         <input type="number" name="price" min="0" step="0.01" required>
                     </label>
                     <label>
+                        <span class="label-text">
+                            Address / Pickup Location<span style="color: red; margin-left: 2px;">*</span>
+                        </span>
+                        <input type="text" name="address" required>
+                    </label>
+                    <label>
                          <span class="label-text">
                             Category<span style="color: red; margin-left: 2px;">*</span>
                         </span>
@@ -52,7 +63,7 @@
 
         <section class="listings-container">
             <% if (listings.length === 0) { %>
-                <p>Not listings yet. </p>
+                <p>No listings yet. </p>
             <% } else { %>
                 <% listings.forEach(l => { %>
                     <div class="listing-card">
@@ -62,9 +73,12 @@
                                 <span class="price">$<%= l.price %></span>
                                 <span class="tag"><%= l.category %></span>
                             </div>
-                            <h3 class="title"><%= l.title %></h3>
+                            <a class="title" href="/listings/<%= l.id %>"><%= l.title %></a>
                             <p class="description"><%= l.description %></p>
                             <span class="posted">Posted <%= new Date(l.createdAt).toLocaleDateString() %></span>
+                            <form action="/listings/<%= l.id %>/delete" method="POST" class="delete-form" onsubmit="return confirm('Delete this listing?')">
+                                <button type="submit" class="delete-btn">Delete</button>
+                            </form>
                         </div>
                     </div>
                 <% }) %>

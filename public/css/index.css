@@ -6,8 +6,80 @@ body {
   background-color: azure;
 }
 
-h1 {
+
+.page-header {
   text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.page-header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.subtitle {
+  margin: 0.3rem 0 0;
+  color: #777;
+  font-size: 0.95rem;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.count {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* #open-modal-btn {
+  padding: 0.5rem 1rem;
+  background: #1e6b34;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+#open-modal-btn:hover {
+  background: #17552a;
+} */
+
+.filters {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.filters a {
+  text-decoration: none;
+  font-size: 0.85rem;
+  color: #555;
+  background: #f0f0f0;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+}
+
+.filters a.active {
+  background: #1e6b34;
+  color: white;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #888;
+}
+
+.empty-hint {
+  font-size: 0.85rem;
+  color: #aaa;
 }
 
 #open-modal-btn {
@@ -189,6 +261,7 @@ h1 {
   font-size: 1rem;
   font-weight: 600;
   color: #222;
+  text-decoration: none;
 }
 
 .description {
@@ -205,4 +278,23 @@ h1 {
   font-size: 0.75rem;
   color: #999;
   margin-top: 0.2rem;
+}
+
+
+.delete-form {
+  margin-top: 0.5rem;
+}
+
+.delete-btn {
+  font-size: 0.8rem;
+  color: #c0392b;
+  background: none;
+  border: 1px solid #f0c9c4;
+  padding: 0.3rem 0.7rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background: #fdecea;
 }

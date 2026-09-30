@@ -1,7 +1,7 @@
 {
-  "name": "resumecustomizer",
+  "name": "marketplace",
   "version": "1.0.0",
-  "description": "This is a web app that allows users to customize their resume based on given job description.",
+  "description": "This is a web app that allows users to sell or buy stuff from others.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -11,16 +11,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/thanhthu2411/resumecustomizer.git"
+    "url": "git+https://github.com/thanhthu2411/marketplace.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "module",
   "bugs": {
-    "url": "https://github.com/thanhthu2411/resumecustomizer/issues"
+    "url": "https://github.com/thanhthu2411/marketplace/issues"
   },
-  "homepage": "https://github.com/thanhthu2411/resumecustomizer#readme",
+  "homepage": "https://github.com/thanhthu2411/marketplace#readme",
   "dependencies": {
     "ejs": "^6.0.1",
     "express": "^5.2.1"

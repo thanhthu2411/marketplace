@@ -2,6 +2,7 @@ import express from "express"
 import path from "path"
 import router from "./routes/routes.js"
 import { fileURLToPath } from "url"
+import { seed } from "./data/listingStore.js"
 
 const app = express()
 
@@ -17,6 +18,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json())
 
 app.use("/listings", router)
+
+seed()
 
 app.listen(PORT, () => {
     console.log(`Server running at http://localhost:${PORT}`)
