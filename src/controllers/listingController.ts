@@ -1,5 +1,6 @@
 import type { Request, Response, NextFunction } from "express";
 import { listingStore } from "../data/listingStore.js";
+import { validateListing } from "../utils/validation.js";
 
 const getAllListings = (req: Request, res: Response, next: NextFunction) => {
   // const category = req.query.category as string | undefined;
@@ -23,6 +24,14 @@ const getListingDetail = (req: Request, res: Response, next: NextFunction) => {
 
 const createListing = (req: Request, res: Response, next: NextFunction) => {
   const { title, price, category, description, address } = req.body;
+  const priceNum = Number(price)
+
+  const [isValid, error] = validateListing(title, priceNum, category, address)
+
+  if (!isValid) {
+    return res.redirect("/listings");
+  }
+  
   listingStore.create(title, Number(price), category, description, address);
   return res.redirect("/listings");
 };
