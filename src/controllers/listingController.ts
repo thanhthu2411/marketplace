@@ -2,11 +2,13 @@ import type { Request, Response, NextFunction } from "express";
 import { getAll, getById, create, remove } from "../data/listingStore.js";
 
 const getAllListings = (req: Request, res: Response, next: NextFunction) => {
-  const category = req.query.category as string | undefined;
-  const all = getAll();
-  const listings = category ? all.filter((l) => l.category === category) : all;
+  // const category = req.query.category as string | undefined;
+  // const all = getAll();
+  // const listings = category ? all.filter((l) => l.category === category) : all;
 
-  return res.render("index", { listings, selectedCategory: category ?? null });
+  const listings = getAll()
+
+  return res.render("index", { listings});
 };
 
 const getListingDetail = (req: Request, res: Response, next: NextFunction) => {

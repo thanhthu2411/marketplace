@@ -22,5 +22,5 @@ app.use("/listings", router)
 seed()
 
 app.listen(PORT, () => {
-    console.log(`Server running at http://localhost:${PORT}`)
+    console.log(`Server running at http://localhost:${PORT}/listings`)
 })
