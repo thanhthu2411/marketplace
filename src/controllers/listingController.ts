@@ -3,9 +3,6 @@ import { listingStore } from "../data/listingStore.js";
 import { validateListing } from "../utils/validation.js";
 
 const getAllListings = (req: Request, res: Response, next: NextFunction) => {
-  // const category = req.query.category as string | undefined;
-  // const all = getAll();
-  // const listings = category ? all.filter((l) => l.category === category) : all;
 
   const listings = listingStore.getAll()
 
@@ -31,7 +28,7 @@ const createListing = (req: Request, res: Response, next: NextFunction) => {
   if (!isValid) {
     return res.redirect("/listings");
   }
-  
+
   listingStore.create(title, Number(price), category, description, address);
   return res.redirect("/listings");
 };
