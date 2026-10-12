@@ -1,0 +1,28 @@
+.marketplace { width: min(1120px, calc(100% - 40px)); margin: 0 auto; padding: 48px 0 72px; }
+.site-header, .toolbar, .section-heading, .listing-topline { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.eyebrow, .category { color: #2563eb; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+h1, h2, h3, p { margin-top: 0; }
+h1 { max-width: 680px; margin-bottom: 0.4rem; font-size: clamp(2.3rem, 6vw, 4.5rem); line-height: 1; letter-spacing: -0.06em; }
+h2 { margin-bottom: 0; font-size: 1.7rem; }
+h3 { margin: 0.75rem 0 0.35rem; font-size: 1.2rem; }
+.primary-button, .filter-button { border: 0; border-radius: 999px; cursor: pointer; font: inherit; font-weight: 700; padding: 0.75rem 1.2rem; }
+.primary-button { color: white; background: #2563eb; }
+.filter-button { color: #334155; background: #e2e8f0; }
+.toolbar { margin: 48px 0 32px; }
+input { width: min(420px, 100%); border: 1px solid #cbd5e1; border-radius: 999px; font: inherit; padding: 0.8rem 1rem; }
+.section-heading { border-bottom: 1px solid #e2e8f0; padding-bottom: 16px; }
+.section-heading span, small { color: #64748b; }
+.listing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-top: 24px; }
+.listing-card { overflow: hidden; border: 1px solid #e2e8f0; border-radius: 16px; background: white; box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06); }
+.listing-image { display: grid; place-items: center; height: 150px; color: #1d4ed8; background: #dbeafe; font-size: 3rem; font-weight: 800; }
+.listing-details { padding: 18px; }
+.listing-details p { min-height: 48px; color: #475569; }
+.status { margin-top: 24px; color: #475569; }
+.error { color: #b91c1c; }
+@media (max-width: 640px) {
+  .marketplace { width: min(100% - 28px, 1120px); padding-top: 28px; }
+  .site-header, .toolbar { align-items: stretch; flex-direction: column; }
+  .primary-button { align-self: flex-start; }
+  .toolbar { margin: 32px 0 24px; }
+  input { box-sizing: border-box; width: 100%; }
+}

@@ -1,0 +1,161 @@
+:root,
+[data-theme="light"] {
+  color-scheme: light;
+
+  /* Backgrounds */
+  --bg-primary: #f6f9fd;            /* page */
+  --bg-surface: #ffffff;            /* cards, modal, header */
+  --bg-surface-hover: #eaf1fb;      /* hover on cards, menu items */
+  --bg-muted: #eef3fa;              /* info boxes, thumbnails */
+  --bg-overlay: rgba(20, 30, 50, 0.45); /* modal backdrop */
+
+  /* Text */
+  --text-primary: #1f2a3d;
+  --text-secondary: #4a5870;
+  --text-muted: #7a879c;            /* placeholders, timestamps */
+  --link: #3a63a3;
+
+  /* Accent (your main colors) */
+  --accent: rgb(201, 219, 244);
+  --accent-hover: rgb(157, 191, 234);
+  --accent-text: #1f2a3d;           /* text on top of accent */
+  --accent-secondary: #4f74ad;
+  --accent-soft: #e8f0fb;           /* active filter, selected item */
+
+  /* Borders */
+  --border: #dbe5f2;
+  --border-light: #c5d3e8;
+
+  /* Buttons */
+  --btn-primary-bg: var(--accent);
+  --btn-primary-text: var(--accent-text);
+  --btn-primary-hover: var(--accent-hover);
+
+  --btn-secondary-bg: transparent;
+  --btn-secondary-text: var(--text-primary);
+  --btn-secondary-border: var(--border-light);
+  --btn-secondary-hover: var(--bg-surface-hover);
+
+  --btn-danger-bg: var(--danger);
+  --btn-danger-text: #ffffff;
+  --btn-danger-soft-hover: var(--danger-soft);
+
+  /* Forms */
+  --input-bg: #ffffff;
+  --input-border: var(--border-light);
+  --input-border-focus: var(--accent-secondary);
+  --input-placeholder: var(--text-muted);
+  --focus-ring: rgba(79, 116, 173, 0.35);
+
+  /* Listing cards */
+  --card-bg: var(--bg-surface);
+  --card-border: var(--border);
+  --card-hover-border: var(--accent-hover);
+  --price: #2f7d57;
+  --tag-bg: #eaf1fb;
+  --tag-text: #4a5870;
+  --thumb-from: rgb(201, 219, 244);
+  --thumb-to: rgb(157, 191, 234);
+  --thumb-text: #1f2a3d;
+  --sold-bg: #6b7688;
+  --sold-text: #ffffff;
+  --like: #d6455d;
+
+  /* Status */
+  --success: #3f8a62;
+  --success-soft: #e4f2ea;
+  --warning: #a8691a;
+  --warning-soft: #fbf0d9;
+  --danger: #c0504d;
+  --danger-soft: #f8e3e2;
+  --info: #4f74ad;
+  --info-soft: #e3ebf6;
+
+  /* Shadows */
+  --shadow-color: rgba(20, 40, 80, 0.1);
+  --shadow-sm: 0 1px 2px var(--shadow-color);
+  --shadow-md: 0 4px 12px var(--shadow-color);
+
+  /* Shape */
+  --radius-sm: 6px;
+  --radius: 10px;
+  --radius-pill: 999px;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  /* Backgrounds */
+  --bg-primary: #121826;
+  --bg-surface: #1b2336;
+  --bg-surface-hover: #25304a;
+  --bg-muted: #222c42;
+  --bg-overlay: rgba(0, 0, 0, 0.6);
+
+  /* Text */
+  --text-primary: #e8eef9;
+  --text-secondary: #b4c0d6;
+  --text-muted: #7f8ca3;
+  --link: #9dbfea;
+
+  /* Accent */
+  --accent: rgb(201, 219, 244);
+  --accent-hover: rgb(157, 191, 234);
+  --accent-text: #14203a;
+  --accent-secondary: #8fb3e6;
+  --accent-soft: rgba(201, 219, 244, 0.12);
+
+  /* Borders */
+  --border: #2b3752;
+  --border-light: #3a4864;
+
+  /* Buttons */
+  --btn-primary-bg: var(--accent);
+  --btn-primary-text: var(--accent-text);
+  --btn-primary-hover: var(--accent-hover);
+
+  --btn-secondary-bg: transparent;
+  --btn-secondary-text: var(--text-primary);
+  --btn-secondary-border: var(--border-light);
+  --btn-secondary-hover: var(--bg-surface-hover);
+
+  --btn-danger-bg: var(--danger);
+  --btn-danger-text: #ffffff;
+  --btn-danger-soft-hover: var(--danger-soft);
+
+  /* Forms */
+  --input-bg: #161d2e;
+  --input-border: var(--border-light);
+  --input-border-focus: var(--accent);
+  --input-placeholder: var(--text-muted);
+  --focus-ring: rgba(201, 219, 244, 0.35);
+
+  /* Listing cards */
+  --card-bg: var(--bg-surface);
+  --card-border: var(--border);
+  --card-hover-border: var(--accent-hover);
+  --price: #5fbf8a;
+  --tag-bg: #2a3550;
+  --tag-text: #b4c0d6;
+  --thumb-from: #2a3a5c;
+  --thumb-to: #3a5080;
+  --thumb-text: #c9dbf4;
+  --sold-bg: #4a5568;
+  --sold-text: #e8eef9;
+  --like: #ff6b81;
+
+  /* Status */
+  --success: #5fbf8a;
+  --success-soft: rgba(95, 191, 138, 0.15);
+  --warning: #e0a44a;
+  --warning-soft: rgba(224, 164, 74, 0.15);
+  --danger: #e57373;
+  --danger-soft: rgba(229, 115, 115, 0.15);
+  --info: #8fb3e6;
+  --info-soft: rgba(143, 179, 230, 0.15);
+
+  /* Shadows */
+  --shadow-color: rgba(0, 0, 0, 0.4);
+  --shadow-sm: 0 1px 2px var(--shadow-color);
+  --shadow-md: 0 4px 12px var(--shadow-color);
+}

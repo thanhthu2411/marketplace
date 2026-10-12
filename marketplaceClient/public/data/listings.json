@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "title": "Calculus textbook",
+    "price": 35,
+    "category": "Books",
+    "description": "Lightly used textbook with notes in the margins.",
+    "location": "North Campus"
+  },
+  {
+    "id": 2,
+    "title": "Desk lamp",
+    "price": 12,
+    "category": "Furniture",
+    "description": "Adjustable LED lamp, perfect for a dorm desk.",
+    "location": "Student Union"
+  },
+  {
+    "id": 3,
+    "title": "Wireless headphones",
+    "price": 40,
+    "category": "Electronics",
+    "description": "Noise-canceling headphones with charging case.",
+    "location": "West Village"
+  }
+]
