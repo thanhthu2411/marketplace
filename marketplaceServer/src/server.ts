@@ -3,6 +3,8 @@ import path from "path"
 import router from "./routes/routes.js"
 import { fileURLToPath } from "url"
 import { listingStore } from "./data/listingStore.js"
+import cors from "cors"
+
 
 const app = express()
 
@@ -17,10 +19,13 @@ app.set("views", path.join(__dirname, "views"))
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json())
 
-app.use("/listings", router)
+app.use(cors())
+
+
+app.use("/api/listings", router)
 
 listingStore.seed()
 
 app.listen(PORT, () => {
-    console.log(`Server running at http://localhost:${PORT}/listings`)
+    console.log(`Server running at http://localhost:${PORT}/api/listings`)
 })

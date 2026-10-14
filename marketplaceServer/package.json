@@ -22,10 +22,12 @@
   },
   "homepage": "https://github.com/thanhthu2411/marketplace#readme",
   "dependencies": {
+    "cors": "^2.8.6",
     "ejs": "^6.0.1",
     "express": "^5.2.1"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",
     "@types/multer": "^2.2.0",
     "@types/node": "^26.6.3",

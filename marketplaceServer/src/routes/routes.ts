@@ -10,7 +10,7 @@ const router = Router();
 
 router.get("/", getAllListings);
 router.post("/", createListing);
-router.post("/:id/delete", deleteListing);
-router.get("/:id", getListingDetail); // keep this below /:id/delete
+router.delete("/:id", deleteListing);
+router.get("/:id", getListingDetail); 
 
 export default router;

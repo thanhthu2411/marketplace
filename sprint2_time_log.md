@@ -35,7 +35,9 @@ The expected minimum amount of time each Sprint for each category is as follows:
 |10/09/2026 |10:22AM  | MTG    |Stand-up meeting and personal project meeting |     12      |
 |10/09/2026 |10:45AM-11:00AM & 1:50PM-2:07PM  | TP    |Help teammates connect to Neon database and create branches for database |     30      |
 |10/12/2026 |10:15AM-11:10AM  | IM    |Start React project (React setup) |     60      |
-|10/12/2026 |5:15PM  | IM    |Start React project (React setup) |     90      |
+|10/12/2026 |5:15PM  | IM    |Build app header, appframe, add light/dark theme |     60      |
+|10/14/2026 |10:15AM  | MTG    |Team presentation |     60      |
+|10/14/2026 |1:28PM  | IM    |Buil app homepage |     60      |
 
 |          |          |        |                                            |             |
 

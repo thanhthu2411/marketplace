@@ -6,7 +6,7 @@ const getAllListings = (req: Request, res: Response, next: NextFunction) => {
 
   const listings = listingStore.getAll()
 
-  return res.render("index", { listings});
+  return res.json(listings);
 };
 
 const getListingDetail = (req: Request, res: Response, next: NextFunction) => {
@@ -14,9 +14,9 @@ const getListingDetail = (req: Request, res: Response, next: NextFunction) => {
   const listing = listingStore.getById(id);
 
   if (!listing) {
-    return res.status(404).send("Listing not found");
+    return res.status(404).json({ error: "Listing not found" });
   }
-  return res.render("detail", { listing });
+  return res.json(listing);
 };
 
 const createListing = (req: Request, res: Response, next: NextFunction) => {
@@ -26,17 +26,20 @@ const createListing = (req: Request, res: Response, next: NextFunction) => {
   const [isValid, error] = validateListing(title, priceNum, category, address)
 
   if (!isValid) {
-    return res.redirect("/listings");
+    return res.status(400).json({ error });
   }
 
-  listingStore.create(title, Number(price), category, description, address);
-  return res.redirect("/listings");
+  const newListing = listingStore.create(title, Number(price), category, description, address);
+  return res.status(201).json(newListing);
 };
 
 const deleteListing = (req: Request, res: Response, next: NextFunction) => {
   const id = Number(req.params.id);
-  listingStore.remove(id);
-  return res.redirect("/listings");
+  const removed = listingStore.remove(id);
+  if(!removed) {
+    return res.status(404).json({error: "Listing not found"})
+  }
+  return res.status(204).send()
 };
 
 export { getAllListings, getListingDetail, createListing, deleteListing };

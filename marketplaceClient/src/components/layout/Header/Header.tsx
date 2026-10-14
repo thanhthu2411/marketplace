@@ -7,9 +7,10 @@ import './Header.css'
 type HeaderProps = {
   theme: Theme
   onToggleTheme: () => void
+  onOpenModal: () => void
 }
 
-export function Header({ theme, onToggleTheme }: HeaderProps) {
+export function Header({ theme, onToggleTheme, onOpenModal }: HeaderProps) {
   return (
     <header className="header">
       <div className="header-left">
@@ -23,8 +24,7 @@ export function Header({ theme, onToggleTheme }: HeaderProps) {
       </nav>
 
       <div className="header-right">
-        <Button variant="primary" icon={Plus} size="small">Sell an Item</Button>
-        <Button variant="secondary" icon={Heart} size="small" aria-label="Saved listings" />
+        <Button icon={Plus} size="small" onClick={onOpenModal}>Sell an Item</Button>        <Button variant="secondary" icon={Heart} size="small" aria-label="Saved listings" />
         <Button
           variant="secondary"
           icon={Sun}

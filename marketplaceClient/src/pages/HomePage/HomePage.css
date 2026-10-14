@@ -1,0 +1,71 @@
+.home {
+  max-width: 1000px;
+  margin: 0 auto;          /* this is what centers the page */
+  padding: 1.5rem;
+}
+
+/* ---------- Home header ---------- */
+.home-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.home-header h1 {
+  margin: 0;
+  font-size: 1.6rem;
+  color: var(--text-primary);
+}
+
+/* ---------- Sections ---------- */
+.home-section {
+  margin-top: 2rem;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.section-header h2 {
+  margin: 0;
+  font-size: 1.15rem;
+  color: var(--text-primary);
+}
+
+.view-all {
+  color: var(--link);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.view-all:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Listings grid ---------- */
+.listings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.empty-text {
+  color: var(--text-muted);
+}
+
+/* ---------- Small screens ---------- */
+@media (max-width: 600px) {
+  .home {
+    padding: 1rem;
+  }
+
+  .home-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
