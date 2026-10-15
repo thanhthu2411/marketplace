@@ -1,0 +1,67 @@
+import { useEffect, useState } from "react"
+import { Link, useParams } from "react-router"
+import { ArrowLeft, MapPin } from "lucide-react"
+import { getListingById } from "../../services/listing.service"
+import type { Listing } from "../../types/listing"
+import "./ListingDetailPage.css"
+
+export function ListingDetailPage() {
+  const { id } = useParams()
+  const [listing, setListing] = useState<Listing | null>(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+
+  useEffect(() => {
+    const loadListing = async () => {
+      try {
+        const data = await getListingById(Number(id))
+        setListing(data)
+      } catch (err) {
+        setError(err instanceof Error ? err.message : "Something went wrong")
+      } finally {
+        setLoading(false)
+      }
+    }
+    loadListing()
+  }, [id])
+
+  if (loading) return <div className="detail"><p>Loading...</p></div>
+
+  if (error || !listing) {
+    return (
+      <div className="detail">
+        <Link to="/listings" className="back-link"><ArrowLeft size={16} /> Back to listings</Link>
+        <p className="detail-error">{error ?? "Listing not found"}</p>
+      </div>
+    )
+  }
+
+  return (
+    <div className="detail">
+      <Link to="/listings" className="back-link">
+        <ArrowLeft size={16} /> Back to listings
+      </Link>
+
+      <div className="detail-thumb">
+        {listing.category.charAt(0).toUpperCase()}
+      </div>
+
+      <div className="detail-top">
+        <span className="detail-price">${listing.price}</span>
+        <span className="detail-tag">{listing.category}</span>
+      </div>
+
+      <h1 className="detail-title">{listing.title}</h1>
+      <p className="detail-meta">
+        Posted {new Date(listing.createdAt).toLocaleDateString()}
+      </p>
+
+      <p className="detail-description">{listing.description}</p>
+
+      <div className="detail-info-box">
+        <span className="detail-info-label"><MapPin size={14} /> Pickup location</span>
+        <span>{listing.address}</span>
+      </div>
+    </div>
+  )
+}

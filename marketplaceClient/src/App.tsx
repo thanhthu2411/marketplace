@@ -1,9 +1,11 @@
 import { Route, Routes } from 'react-router'
 import { AppFrame } from './components/layout/AppFrame/AppFrame'
 import { HomePage } from './pages/HomePage/HomePage'
-import { ListingPage } from './pages/ListingPage/ListingPage'
+import { AllListingsPage } from './pages/AllListingsPage/AllListingsPage'
 import { AboutPage } from './pages/AboutPage/AboutPage'
 import { ContactPage } from './pages/ContactPage/ContactPage'
+import { ListingDetailPage } from './pages/ListingDetailPage/ListingDetailPage'
+import { ListingProvider } from './context/ListingContext'
 import { useEffect, useState } from 'react'
 import type { Theme } from './types/theme'
 
@@ -24,14 +26,18 @@ function App() {
   }
 
   return (
-    <Routes>
+    <ListingProvider>
+      <Routes>
       <Route element={<AppFrame theme={theme} onToggleTheme={toggleTheme} />}>
         <Route index element={<HomePage />} />
-        <Route path="listings" element={<ListingPage />} />
+        <Route path="listings" element={<AllListingsPage />} />
         <Route path="about" element={<AboutPage />} />
         <Route path="contact" element={<ContactPage />} />
+        <Route path="listings/:id" element={<ListingDetailPage />} />
       </Route>
     </Routes>
+    </ListingProvider>
+    
   )
 }
 

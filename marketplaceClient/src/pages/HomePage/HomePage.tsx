@@ -1,13 +1,17 @@
 import './HomePage.css'
-import type { Listing } from '../../types/listing'
 import { ListingCard } from '../../components/ui/ListingCard/ListingCard'
 import { Link, useOutletContext } from 'react-router'
 import { Button } from '../../components/ui/Button/Button'
 import { Plus } from 'lucide-react'
-import type { AppOutletContext } from "../../components/layout/AppFrame/AppFrame"
+import { useListings } from '../../context/ListingContext'
+
+type OutletContextType = { onOpenModal: () => void }
 
 export function HomePage() {
-  const { listings, onOpenModal } = useOutletContext<AppOutletContext>()
+  const { listings } = useListings()
+  const { onOpenModal } = useOutletContext<OutletContextType>()
+
+  const recent = listings.reverse().slice(0, 5)
 
   return (
     <div className="home">
@@ -22,11 +26,11 @@ export function HomePage() {
           <Link to="/listings" className="view-all">View all &rarr;</Link>
         </div>
 
-        {listings.length === 0 ? (
+        {recent.length === 0 ? (
           <p>No listings yet.</p>
         ) : (
           <div className="listings-grid">
-            {listings.map((l) => (
+            {recent.map((l) => (
               <ListingCard key={l.id} listing={l} />
             ))}
           </div>

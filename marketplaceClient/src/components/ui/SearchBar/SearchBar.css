@@ -1,0 +1,29 @@
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.8rem;
+  margin-bottom: 1.5rem;
+  background: var(--input-bg);
+  color: var(--text-muted);
+  border: 1px solid var(--input-border);
+  border-radius: var(--radius-pill);
+}
+
+.search-bar:focus-within {
+  border-color: var(--input-border-focus);
+  box-shadow: 0 0 0 3px var(--focus-ring);
+}
+
+.search-bar input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--text-primary);
+  font: inherit;
+}
+
+.search-bar input::placeholder {
+  color: var(--input-placeholder);
+}
