@@ -10,7 +10,7 @@ interface ListingContextValue {
   addListing: (listing: Listing) => void
   removeListing: (id: number) => void
 }
-
+ 
 const ListingContext = createContext<ListingContextValue | null>(null)
 
 export function ListingProvider({ children }: { children: ReactNode }) {

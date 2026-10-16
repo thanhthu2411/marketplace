@@ -38,6 +38,8 @@ The expected minimum amount of time each Sprint for each category is as follows:
 |10/12/2026 |5:15PM  | IM    |Build app header, appframe, add light/dark theme |     60      |
 |10/14/2026 |10:15AM  | MTG    |Team presentation |     60      |
 |10/14/2026 |1:28PM  | IM    |Buil app homepage, new listing form and fetch data from marketServer |     130      |
+|10/15/2026 |5:15PM  | IM    |Buil all listings page, listing detail page |     120      |
+|10/16/2026 |10:15AM  | MTG    | Invididual project meeting |     60      |
 
 |          |          |        |                                            |             |
 
