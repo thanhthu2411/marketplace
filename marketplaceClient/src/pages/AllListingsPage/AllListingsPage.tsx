@@ -4,9 +4,7 @@ import { useState } from "react"
 // import { useOutletContext } from "react-router"
 import { SearchBar } from "../../components/ui/SearchBar/SearchBar"
 import { ListingCard } from "../../components/ui/ListingCard/ListingCard"
-import { useListings
-
- } from '../../context/ListingContext'
+import { useListings } from '../../context/useListings'
 export function AllListingsPage() {
   const { listings } = useListings()
   const [search, setSearch] = useState("")

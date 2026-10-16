@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from "react"
+import { createContext, useEffect, useState } from "react"
 import type { ReactNode } from "react"
 import { getListings } from "../services/listing.service"
 import type { Listing } from "../types/listing"
@@ -46,11 +46,4 @@ export function ListingProvider({ children }: { children: ReactNode }) {
   )
 }
 
-// custom hook: components call this instead of useContext directly
-export function useListings() {
-  const ctx = useContext(ListingContext)
-  if (!ctx) {
-    throw new Error("useListings must be used inside a ListingProvider")
-  }
-  return ctx
-}
+export { ListingContext }

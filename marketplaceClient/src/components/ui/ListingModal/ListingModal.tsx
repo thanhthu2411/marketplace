@@ -2,7 +2,7 @@ import { useState } from "react"
 import { X } from "lucide-react"
 import { Button } from "../Button/Button"
 import { createListing } from "../../../services/listing.service"
-import type { Category, Listing, NewListing } from "../../../types/listing"
+import type { Listing, NewListing } from "../../../types/listing"
 import "./ListingModal.css"
 
 interface ListingModalProps {

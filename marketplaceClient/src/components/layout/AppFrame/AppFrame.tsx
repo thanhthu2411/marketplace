@@ -1,11 +1,9 @@
 import { Outlet } from 'react-router'
 import { Header } from '../Header/Header'
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { ListingModal } from "../../ui/ListingModal/ListingModal"
-import { getListings } from "../../../services/listing.service"
-import type { Listing } from "../../../types/listing"
 import type { Theme } from '../../../types/theme'
-import { useListings } from '../../../context/ListingContext'
+import { useListings } from '../../../context/useListings'
 import './AppFrame.css'
 
 interface AppFrameProps {

@@ -3,7 +3,7 @@ import { ListingCard } from '../../components/ui/ListingCard/ListingCard'
 import { Link, useOutletContext } from 'react-router'
 import { Button } from '../../components/ui/Button/Button'
 import { Plus } from 'lucide-react'
-import { useListings } from '../../context/ListingContext'
+import { useListings } from '../../context/useListings'
 
 type OutletContextType = { onOpenModal: () => void }
 
@@ -11,7 +11,7 @@ export function HomePage() {
   const { listings } = useListings()
   const { onOpenModal } = useOutletContext<OutletContextType>()
 
-  const recent = listings.reverse().slice(0, 5)
+  const recent = [...listings].reverse().slice(0, 5)
 
   return (
     <div className="home">
