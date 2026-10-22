@@ -1,16 +1,22 @@
+import { ObjectId } from "mongodb"
 
-export interface Listing {
-    id: number
+export type Category = "books" | "furniture" | "electronics" | "clothes" | "other"
+
+export interface ListingDoc {
+    _id?: ObjectId
     title: string
     description?: string
     price: number
-    category: "books" | "furniture" | "electronics" | "other"
+    category: Category
     address: string
     isSold: boolean
     imageUrl?: string
     createdAt: Date 
 }
 
+export interface Listing extends Omit<ListingDoc, "_id"> {
+    id: string
+}
 
 
 
