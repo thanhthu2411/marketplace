@@ -2,8 +2,11 @@ import { useState } from "react"
 import { X } from "lucide-react"
 import { Button } from "../Button/Button"
 import { createListing } from "../../../services/listing.service"
-import type { Listing, NewListing } from "../../../types/listing"
+import type { Listing, NewListing, Details } from "../../../types/listing"
 import "./ListingModal.css"
+import type { FieldConfig } from "../../../config/categoryFields"
+import { categoryFields } from "../../../config/categoryFields"
+
 
 interface ListingModalProps {
   isOpen: boolean
@@ -21,6 +24,7 @@ const emptyForm: NewListing = {
 
 export function ListingModal({ isOpen, onClose, onCreated }: ListingModalProps) {
   const [form, setForm] = useState<NewListing>(emptyForm)
+  const [details, setDetails] = useState<Details>({})
   const [error, setError] = useState<string | null>(null)
 
   if (!isOpen) return null
@@ -29,22 +33,28 @@ export function ListingModal({ isOpen, onClose, onCreated }: ListingModalProps) 
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target
-    setForm((prev) => ({
-      ...prev,
-      [name]: name === "price" ? Number(value) : value,
-    }))
+    if (name === "category") setDetails({})
+    setForm((prev) => ({ ...prev, [name]: name === "price" ? Number(value) : value }))
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     try {
-      const created = await createListing(form)
+      const created = await createListing({ ...form, details })
       onCreated(created)
       setForm(emptyForm)
+      setDetails({})
       setError(null)
     } catch (err) {
       setError(err instanceof Error ? err.message : "Something went wrong")
     }
+  }
+
+  const handleDetail = (field: FieldConfig, value: string) => {
+    setDetails((prev) => ({
+      ...prev,
+      [field.name]: field.type === "number" && value !== "" ? Number(value) : value,
+    }))
   }
 
   return (
@@ -56,16 +66,16 @@ export function ListingModal({ isOpen, onClose, onCreated }: ListingModalProps) 
         {error && <div className="form-error">{error}</div>}
 
         <form onSubmit={handleSubmit}>
-          <label>Title
+          <label>Title *
             <input name="title" value={form.title} onChange={handleChange} required />
           </label>
           <label>Description
             <textarea name="description" value={form.description} onChange={handleChange} />
           </label>
-          <label>Price ($)
+          <label>Price ($) *
             <input name="price" type="number" min="0" step="0.01" value={form.price} onChange={handleChange} required />
           </label>
-          <label>Category
+          <label>Category *
             <select name="category" value={form.category} onChange={handleChange}>
               <option value="books">Books</option>
               <option value="furniture">Furniture</option>
@@ -73,7 +83,28 @@ export function ListingModal({ isOpen, onClose, onCreated }: ListingModalProps) 
               <option value="other">Other</option>
             </select>
           </label>
-          <label>Address / Pickup Location
+
+          {/* OPTIONAL DETAILS  */}
+
+          {categoryFields[form.category].map((field) => (
+            <label key={field.name}>{field.label}
+              {field.type === "select" ? (
+                <select value={details[field.name] ?? ""} onChange={(e) => handleDetail(field, e.target.value)}>
+                  <option value="">Select...</option>
+                  {field.options?.map((o) => <option key={o} value={o}>{o}</option>)}
+                </select>
+              ) : (
+                <input
+                  type={field.type}
+                  value={details[field.name] ?? ""}
+                  onChange={(e) => handleDetail(field, e.target.value)}
+                />
+              )}
+            </label>
+          ))}
+
+
+          <label>Address / Pickup Location *
             <input name="address" value={form.address} onChange={handleChange} required />
           </label>
           <Button className="submit-btn" type="submit">Submit</Button>

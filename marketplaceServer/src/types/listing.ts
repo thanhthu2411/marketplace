@@ -1,6 +1,6 @@
 import { ObjectId } from "mongodb"
 
-export type Category = "books" | "furniture" | "electronics" | "clothes" | "other"
+export type Category = "books" | "furniture" | "electronics" | "other"
 
 export interface ListingDoc {
     _id?: ObjectId
@@ -12,11 +12,15 @@ export interface ListingDoc {
     isSold: boolean
     imageUrl?: string
     createdAt: Date 
+    details?: Details
 }
 
 export interface Listing extends Omit<ListingDoc, "_id"> {
     id: string
 }
+
+export type Details = Record<string, string | number>
+
 
 
 

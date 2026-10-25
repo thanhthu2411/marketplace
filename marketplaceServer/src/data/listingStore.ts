@@ -1,4 +1,4 @@
-import type { Listing, Category, ListingDoc } from "../types/listing.ts";
+import type { Listing, Category, ListingDoc, Details } from "../types/listing.ts";
 import { ObjectId, type WithId } from "mongodb";
 import mongodb from "../config/db.js";
 
@@ -29,6 +29,7 @@ class ListingStore {
     category: Category,
     description: string,
     address: string,
+    details: Details={}
   ): Promise<Listing> {
     const doc: ListingDoc = {
       title,
@@ -36,6 +37,7 @@ class ListingStore {
       category,
       description,
       address,
+      details,
       isSold: false,
       createdAt: new Date(),
     };

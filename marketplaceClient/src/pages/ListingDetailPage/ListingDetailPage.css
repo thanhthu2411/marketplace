@@ -98,3 +98,11 @@
 .detail-error {
   color: var(--danger);
 }
+
+.additional-info-box {
+  margin-top: 20px;
+
+  .detail-field {
+    margin-top: 5px;
+  }
+}

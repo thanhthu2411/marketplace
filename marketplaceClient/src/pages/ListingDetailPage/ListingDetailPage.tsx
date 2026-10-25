@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router"
 import { ArrowLeft, MapPin } from "lucide-react"
 import { getListingById } from "../../services/listing.service"
 import type { Listing } from "../../types/listing"
+import {categoryFields} from "../../config/categoryFields"
 import "./ListingDetailPage.css"
 
 export function ListingDetailPage() {
@@ -14,7 +15,7 @@ export function ListingDetailPage() {
   useEffect(() => {
     const loadListing = async () => {
       try {
-        const data = await getListingById(Number(id))
+        const data = await getListingById(String(id))
         setListing(data)
       } catch (err) {
         setError(err instanceof Error ? err.message : "Something went wrong")
@@ -62,6 +63,16 @@ export function ListingDetailPage() {
         <span className="detail-info-label"><MapPin size={14} /> Pickup location</span>
         <span>{listing.address}</span>
       </div>
+
+      {listing.details && Object.keys(listing.details).length > 0 && (
+          <div className="additional-info-box">
+            {categoryFields[listing.category].map((f) =>
+              listing.details?.[f.name] ? (
+                <div className="detail-field" key={f.name}><strong>{f.label}:</strong> {listing.details[f.name]}</div>
+              ) : null
+            )}
+          </div>
+        )}
     </div>
   )
 }

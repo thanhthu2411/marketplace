@@ -9,7 +9,7 @@ export async function getListings(): Promise<Listing[]> {
   return res.json()
 }
 
-export async function getListingById(id: number): Promise<Listing> {
+export async function getListingById(id: string): Promise<Listing> {
   const res = await fetch(`${API_URL}/${id}`)
   if (!res.ok) throw new Error("Listing not found")
   return res.json()

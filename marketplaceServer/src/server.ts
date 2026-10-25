@@ -28,21 +28,19 @@ app.use("/api/listings", router)
 
 // listingStore.seed()
 
-mongodb.connectDb((err:Error) => {
+mongodb.connectDb(async (err:Error) => {
   if (err) {
     console.error("Error initializing database:", err);
     return;
   } else {
-    // Start the server after successful initialization of the database
+    await listingStore.seed()
       const server = app.listen(PORT, () => console.log(`Server running at http://localhost:${PORT}/api/listings`));
 
       if (process.env.NODE_ENV === 'production') {
-        // we only want this to happen in production
-      // Graceful Shutdown for SIGTERM (e.g., Heroku/AWS/Kubernetes restarts)
       process.on('SIGTERM', () => {
         console.log('👋 SIGTERM RECEIVED. Shutting down gracefully');
         server.close(() => {
-          console.log('💥 Process terminated!');
+          console.log(' Process terminated!');
         });
       });
     }

@@ -30,7 +30,10 @@ The expected minimum amount of time each Sprint for each category is as follows:
 |10/19/2026 |1:07PM  | IM    |  Relational database vs Nosql database, MongoDB introduction, Rest APIs|     135      |
 |10/20/2026 |3:25PM  | IM    |  MongoDb setup|     60      |
 |10/21/2026 |10:20AM  | TP    |  Design and add budget schema|     60      |
-|10/21/2026 |1:53PM  | IM    |Update marketplace frontend and design API endpoints|     120      |
+|10/21/2026 |1:53PM  | IM    |Connect database to Mongodb and update ListingStore class|     120      |
+|10/23/2026 |10:18PM  | MTG    |Team standup meeting|     10      |
+|10/23/2026 |10:36PM  | TP    |Write queries for budget table|     45      |
+|10/24/2026 |3:06PM  | IM    |Add seed data, update model and controller functions to call the db, add detail field to listing|     165      |
 |          |          |        |                                            |             |
 
 _Note: Add more rows as needed._
