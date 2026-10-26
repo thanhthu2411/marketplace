@@ -52,4 +52,28 @@ const deleteListing = async (req: Request, res: Response) => {
   }
 }
 
-export { getAllListings, getListingDetail, createListing, deleteListing };
+const updateListing = async (req: Request, res: Response) => {
+  try {
+    const { title, price, category, description, address, details } = req.body
+    const numericPrice = Number(price)
+
+    const [isValid, error] = validateListing(title, numericPrice, category, address)
+    if (!isValid) return res.status(400).json({ error })
+
+    const updated = await listingStore.update(String(req.params.id), {
+      title,
+      price: numericPrice,
+      category,
+      description,
+      address,
+      details: cleanDetails(category, details),
+    })
+    if (!updated) return res.status(404).json({ error: "Listing not found" })
+
+    return res.json(updated)
+  } catch {
+    return res.status(500).json({ error: "Could not update listing" })
+  }
+}
+
+export { getAllListings, getListingDetail, createListing, deleteListing, updateListing };

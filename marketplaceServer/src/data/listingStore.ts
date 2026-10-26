@@ -1,6 +1,16 @@
-import type { Listing, Category, ListingDoc, Details } from "../types/listing.ts";
+import type {
+  Listing,
+  Category,
+  ListingDoc,
+  Details,
+} from "../types/listing.ts";
 import { ObjectId, type WithId } from "mongodb";
 import mongodb from "../config/db.js";
+
+type ListingInput = Pick<
+  ListingDoc,
+  "title" | "price" | "category" | "description" | "address" | "details"
+>;
 
 const toListing = (doc: WithId<ListingDoc>): Listing => {
   const { _id, ...rest } = doc;
@@ -29,7 +39,7 @@ class ListingStore {
     category: Category,
     description: string,
     address: string,
-    details: Details={}
+    details: Details = {},
   ): Promise<Listing> {
     const doc: ListingDoc = {
       title,
@@ -50,6 +60,16 @@ class ListingStore {
     if (!ObjectId.isValid(id)) return false;
     const result = await this.collection().deleteOne({ _id: new ObjectId(id) });
     return result.deletedCount === 1;
+  }
+
+  async update(id: string, data: ListingInput): Promise<Listing | null> {
+    if (!ObjectId.isValid(id)) return null;
+    const result = await this.collection().updateOne(
+      { _id: new ObjectId(id) },
+      { $set: data },
+    );
+    if (result.matchedCount === 0) return null;
+    return this.getById(id);
   }
 
   async seed(): Promise<void> {
