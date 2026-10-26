@@ -1,7 +1,7 @@
 export type Category = "books" | "furniture" | "electronics" | "other"
 
 export interface Listing {
-    id: number
+    id: string
     title: string
     description?: string
     price: number

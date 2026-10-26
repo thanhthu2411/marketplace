@@ -29,3 +29,11 @@ export async function createListing(data: NewListing): Promise<Listing> {
   return res.json()
 }
 
+export async function deleteListing(id: string): Promise<void> {
+  const res = await fetch(`${API_URL}/${id}`, {method: "DELETE"})
+  if (!res.ok) {
+    const body = await res.json().catch(() => ({}))
+    throw new Error(body.error ?? "Failed to delete listing")
+  }
+}
+

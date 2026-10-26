@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react"
 import type { ReactNode } from "react"
-import { getListings } from "../services/listing.service"
+import { getListings, deleteListing as deleteListingRequest } from "../services/listing.service"
 import type { Listing } from "../types/listing"
 
 interface ListingContextValue {
@@ -8,8 +8,10 @@ interface ListingContextValue {
   loading: boolean
   error: string | null
   addListing: (listing: Listing) => void
-  removeListing: (id: number) => void
+  deleteListing: (id:string) => Promise<void>
 }
+
+
  
 const ListingContext = createContext<ListingContextValue | null>(null)
 
@@ -34,12 +36,17 @@ export function ListingProvider({ children }: { children: ReactNode }) {
   const addListing = (listing: Listing) =>
     setListings((prev) => [...prev, listing])
 
-  const removeListing = (id: number) =>
-    setListings((prev) => prev.filter((l) => l.id !== id))
+  // const removeListing = (id: number) =>
+  //   setListings((prev) => prev.filter((l) => l.id !== id))
+
+  const deleteListing = async (id: string) => {
+    await deleteListingRequest(id)
+    setListings((prev) => prev.filter((l) => l.id !== id)) 
+  }
 
   return (
     <ListingContext.Provider
-      value={{ listings, loading, error, addListing, removeListing }}
+      value={{ listings, loading, error, addListing, deleteListing }}
     >
       {children}
     </ListingContext.Provider>

@@ -4,14 +4,14 @@ import './Button.css'
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   icon?: LucideIcon
-  variant?: 'primary' | 'secondary'
+  variant?: 'primary' | 'secondary' | 'danger'
   size?: 'small' | 'medium' | 'large'
 }
 
 export function Button({
   children,
   icon: Icon,
-  variant = 'primary',
+  variant='primary',
   size = 'medium',
   className = '',
   ...rest
