@@ -1,34 +1,38 @@
 import { useEffect, useState } from "react"
-import { Link, useParams, useNavigate } from "react-router"
-import { ArrowLeft, MapPin, Trash2 } from "lucide-react"
+import { Link, useParams, useNavigate, useOutletContext } from "react-router"
+import { ArrowLeft, MapPin, Trash2, Pencil } from "lucide-react"
 import { getListingById } from "../../services/listing.service"
 import type { Listing } from "../../types/listing"
 import { categoryFields } from "../../config/categoryFields"
 import { Button } from "../../components/ui/Button/Button"
 import { useListings } from "../../context/useListings"
+import type { AppOutletContext } from "../../components/layout/AppFrame/AppFrame"
 import "./ListingDetailPage.css"
 
 export function ListingDetailPage() {
   const { id } = useParams()
-  const [listing, setListing] = useState<Listing | null>(null)
-  const [loading, setLoading] = useState(true)
+  // const [listing, setListing] = useState<Listing | null>(null)
+  // const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const navigate = useNavigate()
-  const { deleteListing } = useListings()
+  const { deleteListing, listings, loading } = useListings()
+  const { onEditListing } = useOutletContext<AppOutletContext>()
 
-  useEffect(() => {
-    const loadListing = async () => {
-      try {
-        const data = await getListingById(String(id))
-        setListing(data)
-      } catch (err) {
-        setError(err instanceof Error ? err.message : "Something went wrong")
-      } finally {
-        setLoading(false)
-      }
-    }
-    loadListing()
-  }, [id])
+  const listing = listings.find((l) => l.id === id)
+
+  // useEffect(() => {
+  //   const loadListing = async () => {
+  //     try {
+  //       const data = await getListingById(String(id))
+  //       setListing(data)
+  //     } catch (err) {
+  //       setError(err instanceof Error ? err.message : "Something went wrong")
+  //     } finally {
+  //       setLoading(false)
+  //     }
+  //   }
+  //   loadListing()
+  // }, [id])
 
   const handleDelete = async () => {
     if (!listing) return
@@ -89,9 +93,14 @@ export function ListingDetailPage() {
         </div>
       )}
 
-      <Button className="delete-btn" variant="danger" icon={Trash2} onClick={handleDelete}>
-        Delete listing
-      </Button>
+      <div className="detail-actions">
+        <Button variant="secondary" icon={Pencil} onClick={() => onEditListing(listing)}>
+          Edit
+        </Button>
+        <Button variant="danger" icon={Trash2} onClick={handleDelete}>
+          Delete
+        </Button>
+      </div>
     </div>
   )
 }

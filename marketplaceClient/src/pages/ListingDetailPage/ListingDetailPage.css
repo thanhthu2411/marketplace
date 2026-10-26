@@ -107,6 +107,8 @@
   }
 }
 
-.delete-btn {
-  margin-top: 20px;
+.detail-actions {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 1.5rem;
 }

@@ -77,7 +77,7 @@
   color: var(--text-muted);
 }
 
-.delete-btn {
+.listing-card .delete-btn {
   text-align: center;
   width: 50px;
 }

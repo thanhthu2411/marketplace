@@ -37,3 +37,16 @@ export async function deleteListing(id: string): Promise<void> {
   }
 }
 
+export async function updateListing(id: string, data: NewListing): Promise<Listing> {
+  const res = await fetch(`${API_URL}/${id}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  })
+  if (!res.ok) {
+    const body = await res.json().catch(() => ({}))
+    throw new Error(body.error ?? "Failed to update listing")
+  }
+  return res.json()
+}
+
