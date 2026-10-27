@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react"
+import {  useState } from "react"
 import { Link, useParams, useNavigate, useOutletContext } from "react-router"
 import { ArrowLeft, MapPin, Trash2, Pencil } from "lucide-react"
-import { getListingById } from "../../services/listing.service"
-import type { Listing } from "../../types/listing"
+// import { getListingById } from "../../services/listing.service"
+// import type { Listing } from "../../types/listing"
 import { categoryFields } from "../../config/categoryFields"
 import { Button } from "../../components/ui/Button/Button"
 import { useListings } from "../../context/useListings"
@@ -11,8 +11,6 @@ import "./ListingDetailPage.css"
 
 export function ListingDetailPage() {
   const { id } = useParams()
-  // const [listing, setListing] = useState<Listing | null>(null)
-  // const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const navigate = useNavigate()
   const { deleteListing, listings, loading } = useListings()

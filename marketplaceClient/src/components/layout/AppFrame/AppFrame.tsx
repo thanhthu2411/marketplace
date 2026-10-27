@@ -45,7 +45,7 @@ export function AppFrame({ theme, onToggleTheme }: AppFrameProps) {
       <Header
         theme={theme}
         onToggleTheme={onToggleTheme}
-        onOpenModal={() => setIsModalOpen(true)}
+        onOpenModal={openCreate}
       />
       <main className="page-content">
         <Outlet context={context} />
