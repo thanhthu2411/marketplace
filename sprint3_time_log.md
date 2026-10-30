@@ -35,8 +35,10 @@ The expected minimum amount of time each Sprint for each category is as follows:
 |10/23/2026 |10:36PM  | TP    |Write queries for budget table|     45      |
 |10/24/2026 |3:06PM  | IM    |Add seed data, update model and controller functions to call the db, add detail field to listing|     165      |
 |10/26/2026 |1:30PM  | IM    |Add deleting and updating listing features|     130      |
-|10/27/2026 |  | TP    | |     90      |
-|10/30/2026 |3:30PM  | TP    |Review indexes and contraints for all tables|     45      |
+|10/27/2026 | 2:35PM  | TP    |     Keep working on queries for budget and other tables | 90      |
+|10/28/2026 | 10:15AM | MTG    |     team presentation | 60      | 
+|10/30/2026 |10:15PM  | MTG    |Individual review meeting|     60      |
+|10/30/2026 |1:30PM  | TP    |Review indexes and contraints for all tables|     45      |
 |          |          |        |                                            |             |
 
 _Note: Add more rows as needed._
@@ -45,7 +47,7 @@ _Note: Add more rows as needed._
 
 |Categroy                       |Total Time (Hours:Minutes)|
 |-------------------------------|:------------------------:|
-|IM - Individual Module         |                |
-|TP - Team Project              |                     |
-|MTG - Class Meetings           |                   |
-|**TOTAL**                      |              |
+|IM - Individual Module         |          10:10      |
+|TP - Team Project              |            4:00         |
+|MTG - Class Meetings           |          2:55         |
+|**TOTAL**                      |            17:05  |
